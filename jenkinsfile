@@ -1,0 +1,21 @@
+node('built-in') {
+
+     stage('Preparation') {
+
+    // some block
+      git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+
+     }
+
+     stage('Build') {
+    // some block
+
+      withMaven(globalMavenSettingsConfig: '', jdk: '', maven: 'M3', mavenSettingsConfig: '', traceability: true) {
+          // some block
+       sh 'mvn -Dmaven.test.failure.ignore clean package '
+      }
+
+
+     }
+    // some block
+}
